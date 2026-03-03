@@ -8,7 +8,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
-
 :root{
   --accent:#6c63ff;--accent2:#00d4ff;--green:#22c55e;--yellow:#f59e0b;
   --red:#ef4444;--surface:#1a1f2e;--surface2:#222840;--border:#2a3150;--muted:#64748b;
@@ -33,7 +32,6 @@ header h1{
 }
 header .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:.2rem}
 header .university{color:#a78bfa;font-size:.82rem;font-weight:600}
-
 .stats-bar{
   display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;
   max-width:700px;margin:1.8rem auto 0;
@@ -45,63 +43,48 @@ header .university{color:#a78bfa;font-size:.82rem;font-weight:600}
 }
 .stat-pill .num{font-weight:800;font-size:1.1rem;color:var(--accent2);min-width:1.5rem;text-align:center}
 .stat-pill .lbl{color:var(--muted)}
-
-.btn-download-all{
+.header-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
+.btn-hdr{
   display:inline-flex;align-items:center;gap:.5rem;
-  margin:1.2rem auto 0;
-  background:linear-gradient(135deg,var(--accent),#8b5cf6);
-  border:none;border-radius:999px;padding:.65rem 1.8rem;
-  color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;
-  transition:opacity .2s,transform .2s;
+  border:none;border-radius:999px;padding:.65rem 1.6rem;
+  font-size:.82rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s;
 }
-.btn-download-all:hover{opacity:.9;transform:translateY(-1px)}
-
-.progress-bar-wrap{
-  max-width:400px;margin:1rem auto 0;
-  background:var(--border);border-radius:999px;height:6px;overflow:hidden;
-}
-.progress-bar{
-  height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));
-  border-radius:999px;transition:width .5s ease;width:0%;
-}
+.btn-hdr:hover{opacity:.88;transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:#fff}
+.btn-danger {background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.progress-bar-wrap{max-width:400px;margin:.8rem auto 0;background:var(--border);border-radius:999px;height:6px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px;transition:width .5s ease;width:0%}
 .progress-label{text-align:center;font-size:.72rem;color:var(--muted);margin-top:.4rem}
+
+/* STORAGE BANNER */
+.storage-banner{
+  display:none;max-width:700px;margin:.8rem auto 0;
+  background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);
+  border-radius:10px;padding:.6rem 1rem;font-size:.75rem;color:#4ade80;
+  text-align:center;
+}
+.storage-banner.show{display:block}
 
 /* MAIN */
 main{max-width:860px;margin:0 auto;padding:2rem 1.2rem 4rem}
 h2.section-heading{font-size:1.15rem;font-weight:700;color:#a78bfa;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
 
 /* WEEK CARD */
-.week-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:12px;margin-bottom:1.2rem;overflow:hidden;
-  transition:border-color .25s;
-}
+.week-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:1.2rem;overflow:hidden;transition:border-color .25s}
 .week-card:hover{border-color:#3b4270}
-.week-header{
-  display:flex;align-items:center;gap:1rem;
-  padding:1rem 1.4rem;background:var(--surface2);border-bottom:1px solid var(--border);
-}
-.week-num{
-  width:36px;height:36px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),#8b5cf6);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:.9rem;flex-shrink:0;
-}
+.week-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;background:var(--surface2);border-bottom:1px solid var(--border)}
+.week-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
 .week-info{flex:1}
 .week-title{font-weight:700;font-size:.95rem}
 .week-subtitle{font-size:.75rem;color:var(--muted);margin-top:.1rem}
 .status-badge{font-size:.68rem;font-weight:700;letter-spacing:.05em;padding:.3rem .75rem;border-radius:999px;flex-shrink:0}
 .status-pending{background:rgba(245,158,11,.12);color:var(--yellow);border:1px solid rgba(245,158,11,.25)}
 .status-done{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
-
 .week-body{padding:1.1rem 1.4rem}
 
 /* DROP ZONE */
-.drop-zone{
-  border:2px dashed var(--border);border-radius:10px;
-  padding:1.4rem 1rem;text-align:center;cursor:pointer;
-  transition:border-color .2s,background .2s;position:relative;
-}
+.drop-zone{border:2px dashed var(--border);border-radius:10px;padding:1.4rem 1rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative}
 .drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:rgba(108,99,255,.05)}
 .drop-zone input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
 .drop-icon{font-size:1.6rem;margin-bottom:.4rem}
@@ -110,15 +93,8 @@ h2.section-heading{font-size:1.15rem;font-weight:700;color:#a78bfa;margin-bottom
 
 /* FILE LIST */
 .file-list{margin-top:.9rem;display:flex;flex-direction:column;gap:.6rem}
-.file-item{
-  background:var(--surface2);border:1px solid var(--border);
-  border-radius:9px;padding:.75rem 1rem;
-  display:flex;align-items:center;gap:.9rem;
-}
-.file-type-icon{
-  width:38px;height:38px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
-}
+.file-item{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:.75rem 1rem;display:flex;align-items:center;gap:.9rem}
+.file-type-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .ft-pdf{background:rgba(239,68,68,.13);color:#f87171}
 .ft-img{background:rgba(34,197,94,.13);color:#4ade80}
 .ft-code{background:rgba(0,212,255,.13);color:var(--accent2)}
@@ -129,76 +105,44 @@ h2.section-heading{font-size:1.15rem;font-weight:700;color:#a78bfa;margin-bottom
 .file-name{font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .file-meta{font-size:.7rem;color:var(--muted);margin-top:.15rem}
 .file-actions{display:flex;gap:.4rem;flex-shrink:0}
-.btn-icon{
-  width:32px;height:32px;border-radius:7px;border:1px solid var(--border);
-  background:transparent;color:var(--muted);cursor:pointer;font-size:.9rem;
-  display:flex;align-items:center;justify-content:center;transition:all .18s;
-}
+.btn-icon{width:32px;height:32px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .18s}
 .btn-icon:hover{border-color:var(--accent2);color:var(--accent2);background:rgba(0,212,255,.07)}
 .btn-icon.del:hover{border-color:var(--red);color:var(--red);background:rgba(239,68,68,.07)}
 
-/* ── VIEWER MODAL ────────────────────────────────── */
-.modal-overlay{
-  display:none;position:fixed;inset:0;z-index:500;
-  background:rgba(0,0,0,.85);backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;padding:1rem;
-}
+/* STORAGE WARNING - when file too large */
+.warn-strip{display:none;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:.6rem 1rem;font-size:.75rem;color:var(--yellow);margin-top:.5rem}
+.warn-strip.show{display:block}
+
+/* VIEWER MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.active{display:flex}
-.viewer-modal{
-  background:var(--surface);border:1px solid var(--border);border-radius:16px;
-  width:100%;max-width:940px;height:90vh;
-  display:flex;flex-direction:column;overflow:hidden;
-  animation:popIn .25s ease;
-}
+.viewer-modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:940px;height:90vh;display:flex;flex-direction:column;overflow:hidden;animation:popIn .25s ease}
 @keyframes popIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
-.viewer-header{
-  display:flex;align-items:center;gap:.8rem;padding:1rem 1.4rem;
-  border-bottom:1px solid var(--border);flex-shrink:0;background:var(--surface2);
-}
-.viewer-header .vicon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.viewer-header{display:flex;align-items:center;gap:.8rem;padding:1rem 1.4rem;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--surface2)}
+.vicon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .viewer-title{flex:1;font-weight:700;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .viewer-actions{display:flex;gap:.5rem}
-.btn-sm{
-  padding:.4rem .9rem;border-radius:7px;border:1px solid var(--border);
-  background:transparent;color:var(--muted);font-size:.75rem;cursor:pointer;
-  transition:all .18s;display:flex;align-items:center;gap:.3rem;white-space:nowrap;
-}
+.btn-sm{padding:.4rem .9rem;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.75rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.3rem;white-space:nowrap}
 .btn-sm:hover{border-color:var(--accent2);color:var(--accent2)}
-.btn-close{
-  width:32px;height:32px;border-radius:7px;border:none;
-  background:rgba(239,68,68,.12);color:#f87171;font-size:1rem;
-  cursor:pointer;transition:background .18s;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
+.btn-close{width:32px;height:32px;border-radius:7px;border:none;background:rgba(239,68,68,.12);color:#f87171;font-size:1rem;cursor:pointer;transition:background .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .btn-close:hover{background:rgba(239,68,68,.28)}
-
-/* viewer content areas */
 .viewer-body{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0}
 .viewer-body iframe{width:100%;height:100%;border:none;background:#fff}
-.img-viewer{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;background:#080c14;overflow:auto;
-}
+.img-viewer{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:#080c14;overflow:auto}
 .img-viewer img{max-width:100%;max-height:100%;border-radius:8px;object-fit:contain}
-.code-viewer{
-  flex:1;overflow:auto;background:#060a12;
-  font-family:'Courier New',Courier,monospace;font-size:.82rem;
-  color:#a8d8ea;line-height:1.7;padding:1.5rem;
-}
+.code-viewer{flex:1;overflow:auto;background:#060a12;font-family:'Courier New',Courier,monospace;font-size:.82rem;color:#a8d8ea;line-height:1.7;padding:1.5rem}
 .code-viewer pre{white-space:pre-wrap;word-break:break-word}
-.text-viewer{flex:1;overflow:auto;padding:1.5rem;font-size:.88rem;line-height:1.8;color:var(--muted)}
-.no-preview{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1rem;color:var(--muted);padding:2rem;text-align:center;
-}
+.no-preview{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted);padding:2rem;text-align:center}
 .no-preview .big-icon{font-size:3.5rem}
 .no-preview p{font-size:.88rem;max-width:340px;line-height:1.6}
 
-/* FOOTER */
-footer{
-  text-align:center;padding:2rem;border-top:1px solid var(--border);
-  font-size:.78rem;color:var(--muted);
-}
+/* CONFIRM MODAL */
+.confirm-modal{background:var(--surface2);border:1px solid var(--border);border-radius:14px;width:100%;max-width:380px;padding:2rem;text-align:center;animation:popIn .2s ease}
+.confirm-modal h3{font-size:1rem;margin-bottom:.6rem}
+.confirm-modal p{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem;line-height:1.5}
+.confirm-actions{display:flex;gap:.8rem;justify-content:center}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted)}
 footer strong{color:#a78bfa}
 </style>
 </head>
@@ -213,12 +157,20 @@ footer strong{color:#a78bfa}
   <div class="stats-bar">
     <div class="stat-pill"><span class="num" id="completed-count">0</span><span class="lbl">Semanas Completadas</span></div>
     <div class="stat-pill"><span class="num">7</span><span class="lbl">Total de Semanas</span></div>
-    <div class="stat-pill"><span class="num" id="files-count">0</span><span class="lbl">Archivos Subidos</span></div>
+    <div class="stat-pill"><span class="num" id="files-count">0</span><span class="lbl">Archivos Guardados</span></div>
     <div class="stat-pill"><span class="num" id="pct-count">0%</span><span class="lbl">Progreso</span></div>
   </div>
   <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
   <div class="progress-label" id="progress-label">0 de 7 semanas completadas</div>
-  <button class="btn-download-all" onclick="downloadAll()">📥 Descargar Todos los Archivos</button>
+
+  <div class="header-btns">
+    <button class="btn-hdr btn-primary" onclick="downloadAll()">📥 Descargar Todos</button>
+    <button class="btn-hdr btn-danger"  onclick="confirmClearAll()">🗑 Borrar Todo</button>
+  </div>
+
+  <div class="storage-banner" id="storage-banner">
+    ✅ Archivos guardados en el navegador — se mantienen al recargar la página
+  </div>
 </header>
 
 <main>
@@ -247,56 +199,142 @@ footer strong{color:#a78bfa}
   </div>
 </div>
 
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirm-modal">
+  <div class="confirm-modal">
+    <h3 id="confirm-title">¿Confirmar acción?</h3>
+    <p id="confirm-msg">Esta acción no se puede deshacer.</p>
+    <div class="confirm-actions">
+      <button class="btn-sm" onclick="closeConfirm()">Cancelar</button>
+      <button class="btn-sm" id="confirm-ok-btn" style="border-color:var(--red);color:#f87171">Confirmar</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// ═══════════════ DATA ═══════════════
+// ═══════════════════════════════════════════════════
+//  CONFIGURACIÓN
+// ═══════════════════════════════════════════════════
 const WEEKS = [
-  {id:1,title:'Semana 1',subtitle:'Introducción al Curso'},
-  {id:2,title:'Semana 2',subtitle:'Estructuras de Control'},
-  {id:3,title:'Semana 3',subtitle:'Funciones y Procedimientos'},
-  {id:4,title:'Semana 4',subtitle:'Arrays y Cadenas'},
-  {id:5,title:'Semana 5',subtitle:'Punteros y Referencias'},
-  {id:6,title:'Semana 6',subtitle:'Estructuras de Datos'},
-  {id:7,title:'Semana 7',subtitle:'Proyecto Final'},
+  {id:1, title:'Semana 1', subtitle:'Introducción al Curso'},
+  {id:2, title:'Semana 2', subtitle:'Estructuras de Control'},
+  {id:3, title:'Semana 3', subtitle:'Funciones y Procedimientos'},
+  {id:4, title:'Semana 4', subtitle:'Arrays y Cadenas'},
+  {id:5, title:'Semana 5', subtitle:'Punteros y Referencias'},
+  {id:6, title:'Semana 6', subtitle:'Estructuras de Datos'},
+  {id:7, title:'Semana 7', subtitle:'Proyecto Final'},
 ];
+
+// Límite por archivo para localStorage (4 MB en base64)
+const MAX_SIZE_BYTES = 4 * 1024 * 1024;
+const LS_KEY = 'felipo_tareas_v2';
+
+// weekFiles[id] = [ { name, size, type, dataUrl, mimeType }, ... ]
 const weekFiles = {};
 WEEKS.forEach(w => weekFiles[w.id] = []);
-let currentFile = null;
 
-// ═══════════════ FILE TYPE ═══════════════
-function getType(file){
-  const ext = file.name.split('.').pop().toLowerCase();
-  const m = file.type||'';
-  if(m.startsWith('image/')||['jpg','jpeg','png','gif','webp','svg','bmp'].includes(ext)) return 'img';
-  if(m==='application/pdf'||ext==='pdf') return 'pdf';
-  if(['doc','docx'].includes(ext)||m.includes('word')) return 'word';
-  if(['zip','rar','7z','tar','gz'].includes(ext)) return 'zip';
-  if(['c','cpp','h','py','js','ts','html','css','java','cs','php','rb','go','rs',
-      'txt','md','json','xml','csv','sh','bat','sql'].includes(ext)) return 'code';
+// ObjectURLs temporales para descarga/vista (se regeneran en memoria)
+const blobUrls = {};  // blobUrls[weekId][idx] = url
+
+let currentFile = null;
+let confirmCallback = null;
+
+// ═══════════════════════════════════════════════════
+//  PERSISTENCIA — localStorage con base64
+// ═══════════════════════════════════════════════════
+function saveToStorage() {
+  try {
+    const data = {};
+    WEEKS.forEach(w => {
+      // Solo guardamos metadata + dataUrl (base64); no guardamos blobUrl
+      data[w.id] = weekFiles[w.id].map(f => ({
+        name:     f.name,
+        size:     f.size,
+        type:     f.type,
+        mimeType: f.mimeType,
+        dataUrl:  f.dataUrl,   // base64 data URL
+      }));
+    });
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
+    showStorageBanner();
+  } catch(e) {
+    // localStorage lleno — avisar al usuario
+    console.warn('localStorage lleno:', e);
+    alert('⚠️ El almacenamiento del navegador está lleno. Algunos archivos muy grandes no se pueden guardar. Borra archivos que ya no necesites.');
+  }
+}
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    WEEKS.forEach(w => {
+      if (data[w.id]) {
+        weekFiles[w.id] = data[w.id];
+        // Inicializar blobUrls vacíos
+        blobUrls[w.id] = new Array(data[w.id].length).fill(null);
+      }
+    });
+  } catch(e) {
+    console.warn('Error al cargar datos:', e);
+  }
+}
+
+function getBlobUrl(wid, idx) {
+  if (!blobUrls[wid]) blobUrls[wid] = [];
+  if (!blobUrls[wid][idx]) {
+    const f = weekFiles[wid][idx];
+    // Reconstruir Blob desde base64 dataUrl
+    const byteStr = atob(f.dataUrl.split(',')[1]);
+    const ab = new ArrayBuffer(byteStr.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteStr.length; i++) ia[i] = byteStr.charCodeAt(i);
+    const blob = new Blob([ab], {type: f.mimeType});
+    blobUrls[wid][idx] = URL.createObjectURL(blob);
+  }
+  return blobUrls[wid][idx];
+}
+
+function showStorageBanner() {
+  document.getElementById('storage-banner').classList.add('show');
+  setTimeout(() => document.getElementById('storage-banner').classList.remove('show'), 3500);
+}
+
+// ═══════════════════════════════════════════════════
+//  TIPOS DE ARCHIVO
+// ═══════════════════════════════════════════════════
+function getType(name, mime) {
+  const ext = name.split('.').pop().toLowerCase();
+  if ((mime||'').startsWith('image/') || ['jpg','jpeg','png','gif','webp','svg','bmp'].includes(ext)) return 'img';
+  if (mime==='application/pdf' || ext==='pdf')   return 'pdf';
+  if (['doc','docx'].includes(ext) || (mime||'').includes('word')) return 'word';
+  if (['zip','rar','7z','tar','gz'].includes(ext)) return 'zip';
+  if (['c','cpp','h','py','js','ts','html','css','java','cs','php','rb','go','rs',
+       'txt','md','json','xml','csv','sh','bat','sql'].includes(ext)) return 'code';
   return 'default';
 }
-const ICONS  = {pdf:'📕',img:'🖼️',word:'📘',code:'💻',zip:'📦',default:'📄'};
-const CLSS   = {pdf:'ft-pdf',img:'ft-img',word:'ft-word',code:'ft-code',zip:'ft-zip',default:'ft-default'};
-function icon(t){return ICONS[t]||'📄'}
-function cls(t){return CLSS[t]||'ft-default'}
-function fmtSize(b){
-  if(b<1024) return b+' B';
-  if(b<1048576) return (b/1024).toFixed(1)+' KB';
-  return (b/1048576).toFixed(1)+' MB';
-}
+const ICONS = {pdf:'📕',img:'🖼️',word:'📘',code:'💻',zip:'📦',default:'📄'};
+const CLSS  = {pdf:'ft-pdf',img:'ft-img',word:'ft-word',code:'ft-code',zip:'ft-zip',default:'ft-default'};
+const icon  = t => ICONS[t]||'📄';
+const cls   = t => CLSS[t] ||'ft-default';
+const fmtSz = b => b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(1)+' MB';
 
-// ═══════════════ RENDER WEEKS ═══════════════
-function renderAll(){
-  const c=document.getElementById('weeks-container');
-  c.innerHTML='';
-  WEEKS.forEach(w=>c.appendChild(buildCard(w)));
+// ═══════════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════════
+function renderAll() {
+  const c = document.getElementById('weeks-container');
+  c.innerHTML = '';
+  WEEKS.forEach(w => c.appendChild(buildCard(w)));
   updateStats();
 }
 
-function buildCard(w){
-  const card=document.createElement('div');
-  card.className='week-card';
-  card.id='week-'+w.id;
-  card.innerHTML=`
+function buildCard(w) {
+  const card = document.createElement('div');
+  card.className = 'week-card';
+  card.id = 'week-' + w.id;
+  card.innerHTML = `
     <div class="week-header">
       <div class="week-num">${w.id}</div>
       <div class="week-info">
@@ -307,118 +345,170 @@ function buildCard(w){
     </div>
     <div class="week-body">
       <label class="drop-zone" id="dz-${w.id}">
-        <input type="file" multiple accept="*/*" onchange="handleFiles(${w.id},this.files)">
+        <input type="file" multiple accept="*/*" onchange="handleFiles(${w.id}, this.files)">
         <div class="drop-icon">📁</div>
         <div class="drop-text">
           <strong>Haz clic para seleccionar</strong> o arrastra archivos aquí<br>
-          PDF, Word, Imágenes, Código, ZIP (máx. 50 MB)
+          PDF, Word, Imágenes, Código (máx. ${fmtSz(MAX_SIZE_BYTES)} por archivo)
         </div>
       </label>
+      <div class="warn-strip" id="warn-${w.id}"></div>
       <div class="file-list" id="list-${w.id}"></div>
     </div>`;
 
-  // drag & drop
-  const dz=card.querySelector('.drop-zone');
-  dz.addEventListener('dragover', e=>{e.preventDefault();dz.classList.add('drag-over')});
-  dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
-  dz.addEventListener('drop',e=>{
-    e.preventDefault();dz.classList.remove('drag-over');
-    handleFiles(w.id,e.dataTransfer.files);
+  const dz = card.querySelector('.drop-zone');
+  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('drag-over'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); dz.classList.remove('drag-over');
+    handleFiles(w.id, e.dataTransfer.files);
   });
   return card;
 }
 
-// ═══════════════ HANDLE FILES ═══════════════
-function handleFiles(wid,fileList){
-  Array.from(fileList).forEach(f=>{
-    if(f.size>50*1024*1024){alert('"'+f.name+'" supera 50 MB.');return}
-    if(weekFiles[wid].find(x=>x.name===f.name&&x.size===f.size)) return;
-    weekFiles[wid].push({name:f.name,size:f.size,type:getType(f),url:URL.createObjectURL(f),file:f});
+// ═══════════════════════════════════════════════════
+//  MANEJO DE ARCHIVOS
+// ═══════════════════════════════════════════════════
+function handleFiles(wid, fileList) {
+  const oversized = [];
+  let processed = 0;
+  const total = fileList.length;
+
+  Array.from(fileList).forEach(file => {
+    if (file.size > MAX_SIZE_BYTES) {
+      oversized.push(file.name);
+      processed++;
+      if (processed === total) finishHandling(wid, oversized);
+      return;
+    }
+    // Duplicados
+    if (weekFiles[wid].find(x => x.name === file.name && x.size === file.size)) {
+      processed++;
+      if (processed === total) finishHandling(wid, oversized);
+      return;
+    }
+
+    // Leer como base64 para guardar en localStorage
+    const reader = new FileReader();
+    reader.onload = e => {
+      weekFiles[wid].push({
+        name:     file.name,
+        size:     file.size,
+        type:     getType(file.name, file.type),
+        mimeType: file.type || 'application/octet-stream',
+        dataUrl:  e.target.result,  // base64 data URL
+      });
+      if (!blobUrls[wid]) blobUrls[wid] = [];
+      blobUrls[wid].push(null); // se generará bajo demanda
+      processed++;
+      if (processed === total) finishHandling(wid, oversized);
+    };
+    reader.onerror = () => { processed++; if (processed===total) finishHandling(wid, oversized); };
+    reader.readAsDataURL(file);
   });
+}
+
+function finishHandling(wid, oversized) {
+  const warn = document.getElementById('warn-' + wid);
+  if (oversized.length) {
+    warn.textContent = `⚠️ ${oversized.length} archivo(s) omitido(s) por superar ${fmtSz(MAX_SIZE_BYTES)}: ${oversized.join(', ')}`;
+    warn.classList.add('show');
+    setTimeout(() => warn.classList.remove('show'), 6000);
+  }
   refreshWeek(wid);
+  saveToStorage();
   updateStats();
 }
 
-function deleteFile(wid,idx){
-  URL.revokeObjectURL(weekFiles[wid][idx].url);
-  weekFiles[wid].splice(idx,1);
+function deleteFile(wid, idx) {
+  // Liberar blob URL si existe
+  if (blobUrls[wid] && blobUrls[wid][idx]) {
+    URL.revokeObjectURL(blobUrls[wid][idx]);
+  }
+  weekFiles[wid].splice(idx, 1);
+  if (blobUrls[wid]) blobUrls[wid].splice(idx, 1);
   refreshWeek(wid);
+  saveToStorage();
   updateStats();
 }
 
-function refreshWeek(wid){
-  const files=weekFiles[wid];
-  const done=files.length>0;
-  const badge=document.getElementById('badge-'+wid);
-  badge.className='status-badge '+(done?'status-done':'status-pending');
-  badge.textContent=done?'✅ Entregado':'⏳ Pendiente';
+function refreshWeek(wid) {
+  const files = weekFiles[wid];
+  const done  = files.length > 0;
 
-  const list=document.getElementById('list-'+wid);
-  list.innerHTML='';
-  files.forEach((f,i)=>{
-    const item=document.createElement('div');
-    item.className='file-item';
-    item.innerHTML=`
+  const badge = document.getElementById('badge-' + wid);
+  badge.className = 'status-badge ' + (done ? 'status-done' : 'status-pending');
+  badge.textContent = done ? '✅ Entregado' : '⏳ Pendiente';
+
+  const list = document.getElementById('list-' + wid);
+  list.innerHTML = '';
+  files.forEach((f, i) => {
+    const item = document.createElement('div');
+    item.className = 'file-item';
+    item.innerHTML = `
       <div class="file-type-icon ${cls(f.type)}">${icon(f.type)}</div>
       <div class="file-info">
         <div class="file-name" title="${escHtml(f.name)}">${escHtml(f.name)}</div>
-        <div class="file-meta">${fmtSize(f.size)} · ${f.type.toUpperCase()}</div>
+        <div class="file-meta">${fmtSz(f.size)} · ${f.type.toUpperCase()} · 💾 Guardado</div>
       </div>
       <div class="file-actions">
-        <button class="btn-icon" title="Ver" onclick="openViewer(${wid},${i})">👁</button>
-        <button class="btn-icon" title="Descargar" onclick="dlFile(${wid},${i})">⬇</button>
+        <button class="btn-icon" title="Ver"        onclick="openViewer(${wid},${i})">👁</button>
+        <button class="btn-icon" title="Descargar"  onclick="dlFile(${wid},${i})">⬇</button>
         <button class="btn-icon del" title="Eliminar" onclick="deleteFile(${wid},${i})">🗑</button>
       </div>`;
     list.appendChild(item);
   });
 }
 
-// ═══════════════ VIEWER ═══════════════
-function openViewer(wid,idx){
-  const f=weekFiles[wid][idx];
-  currentFile=f;
+// ═══════════════════════════════════════════════════
+//  VISOR
+// ═══════════════════════════════════════════════════
+function openViewer(wid, idx) {
+  const f = weekFiles[wid][idx];
+  currentFile = { ...f, wid, idx };
 
-  document.getElementById('vm-title').textContent=f.name;
-  const ic=document.getElementById('vm-icon');
-  ic.className='vicon file-type-icon '+cls(f.type);
-  ic.textContent=icon(f.type);
+  document.getElementById('vm-title').textContent = f.name;
+  const ic = document.getElementById('vm-icon');
+  ic.className = 'vicon file-type-icon ' + cls(f.type);
+  ic.textContent = icon(f.type);
 
-  const body=document.getElementById('vm-body');
-  body.innerHTML='';
+  const body = document.getElementById('vm-body');
+  body.innerHTML = '';
 
-  if(f.type==='pdf'){
-    // Embed PDF with full toolbar
-    const iframe=document.createElement('iframe');
-    iframe.src=f.url+'#toolbar=1&navpanes=1&scrollbar=1';
-    iframe.title=f.name;
-    iframe.style.cssText='width:100%;height:100%;border:none;background:#fff';
+  const url = getBlobUrl(wid, idx);
+
+  if (f.type === 'pdf') {
+    const iframe = document.createElement('iframe');
+    iframe.src   = url + '#toolbar=1&navpanes=1';
+    iframe.title = f.name;
+    iframe.style.cssText = 'width:100%;height:100%;border:none;background:#fff';
     body.appendChild(iframe);
 
-  } else if(f.type==='img'){
-    body.innerHTML=`
-      <div class="img-viewer">
-        <img src="${f.url}" alt="${escHtml(f.name)}">
-      </div>`;
+  } else if (f.type === 'img') {
+    body.innerHTML = `<div class="img-viewer"><img src="${url}" alt="${escHtml(f.name)}"></div>`;
 
-  } else if(f.type==='code'){
-    const r=new FileReader();
-    r.onload=e=>{
-      body.innerHTML=`<div class="code-viewer"><pre>${escHtml(e.target.result)}</pre></div>`;
-    };
-    r.onerror=()=>noPreview(body,f.name,'No se pudo leer el archivo.');
-    r.readAsText(f.file);
+  } else if (f.type === 'code') {
+    // Leer texto desde dataUrl base64
+    try {
+      const text = decodeURIComponent(escape(atob(f.dataUrl.split(',')[1])));
+      body.innerHTML = `<div class="code-viewer"><pre>${escHtml(text)}</pre></div>`;
+    } catch(e) {
+      // Fallback para UTF-8 multi-byte
+      const byteStr = atob(f.dataUrl.split(',')[1]);
+      body.innerHTML = `<div class="code-viewer"><pre>${escHtml(byteStr)}</pre></div>`;
+    }
 
-  } else if(f.type==='word'){
-    body.innerHTML=`
+  } else if (f.type === 'word') {
+    body.innerHTML = `
       <div class="no-preview">
         <div class="big-icon">📘</div>
         <p><strong>${escHtml(f.name)}</strong></p>
-        <p>Los archivos Word no se pueden previsualizar directamente en el navegador.<br>
-           Usa <strong>Descargar</strong> para abrirlo en tu equipo, o <strong>Nueva pestaña</strong> para intentar abrirlo con el visor del sistema.</p>
+        <p>Los archivos Word no se pueden previsualizar en el navegador.<br>
+           Usa <strong>Descargar</strong> para abrirlo en tu equipo.</p>
       </div>`;
 
-  } else if(f.type==='zip'){
-    body.innerHTML=`
+  } else if (f.type === 'zip') {
+    body.innerHTML = `
       <div class="no-preview">
         <div class="big-icon">📦</div>
         <p><strong>${escHtml(f.name)}</strong></p>
@@ -426,81 +516,123 @@ function openViewer(wid,idx){
       </div>`;
 
   } else {
-    // try as text
-    const r=new FileReader();
-    r.onload=e=>{
-      const txt=e.target.result;
-      if(typeof txt==='string'){
-        body.innerHTML=`<div class="text-viewer"><pre style="white-space:pre-wrap">${escHtml(txt)}</pre></div>`;
-      } else {
-        noPreview(body,f.name,'Descárgalo para abrirlo.');
-      }
-    };
-    r.onerror=()=>noPreview(body,f.name,'No se pudo leer el archivo.');
-    r.readAsText(f.file);
+    // Intentar como texto
+    try {
+      const text = decodeURIComponent(escape(atob(f.dataUrl.split(',')[1])));
+      body.innerHTML = `<div class="code-viewer"><pre>${escHtml(text)}</pre></div>`;
+    } catch(e) {
+      body.innerHTML = `
+        <div class="no-preview">
+          <div class="big-icon">📄</div>
+          <p><strong>${escHtml(f.name)}</strong></p>
+          <p>No se puede previsualizar este tipo de archivo. Descárgalo para abrirlo.</p>
+        </div>`;
+    }
   }
 
   document.getElementById('viewer-modal').classList.add('active');
 }
 
-function noPreview(body,name,msg){
-  body.innerHTML=`
-    <div class="no-preview">
-      <div class="big-icon">📄</div>
-      <p><strong>${escHtml(name)}</strong></p>
-      <p>${msg}</p>
-    </div>`;
-}
-
-function closeViewer(){
+function closeViewer() {
   document.getElementById('viewer-modal').classList.remove('active');
-  document.getElementById('vm-body').innerHTML='';
-  currentFile=null;
+  document.getElementById('vm-body').innerHTML = '';
+  currentFile = null;
 }
-document.getElementById('viewer-modal').addEventListener('click',e=>{
-  if(e.target===document.getElementById('viewer-modal')) closeViewer();
+document.getElementById('viewer-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('viewer-modal')) closeViewer();
 });
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeViewer()});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeViewer(); closeConfirm(); } });
 
-function openCurrentFileNewTab(){if(currentFile) window.open(currentFile.url,'_blank')}
-function downloadCurrentFile(){if(currentFile) triggerDl(currentFile.url,currentFile.name)}
-
-// ═══════════════ DOWNLOAD ═══════════════
-function dlFile(wid,idx){const f=weekFiles[wid][idx];triggerDl(f.url,f.name)}
-function triggerDl(url,name){
-  const a=document.createElement('a');a.href=url;a.download=name;
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
+function openCurrentFileNewTab() {
+  if (currentFile) window.open(getBlobUrl(currentFile.wid, currentFile.idx), '_blank');
 }
-function downloadAll(){
-  let n=0;
-  WEEKS.forEach(w=>weekFiles[w.id].forEach(f=>{
-    setTimeout(()=>triggerDl(f.url,f.name),n++*350);
+function downloadCurrentFile() {
+  if (currentFile) triggerDl(getBlobUrl(currentFile.wid, currentFile.idx), currentFile.name);
+}
+
+// ═══════════════════════════════════════════════════
+//  DESCARGAS
+// ═══════════════════════════════════════════════════
+function dlFile(wid, idx) {
+  triggerDl(getBlobUrl(wid, idx), weekFiles[wid][idx].name);
+}
+function triggerDl(url, name) {
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+function downloadAll() {
+  let n = 0;
+  WEEKS.forEach(w => weekFiles[w.id].forEach((f, i) => {
+    setTimeout(() => triggerDl(getBlobUrl(w.id, i), f.name), n++ * 350);
   }));
-  if(!n) alert('No hay archivos subidos todavía.');
+  if (!n) alert('No hay archivos guardados todavía.');
 }
 
-// ═══════════════ STATS ═══════════════
-function updateStats(){
-  let completed=0,total=0;
-  WEEKS.forEach(w=>{
-    const n=weekFiles[w.id].length;
-    total+=n;if(n>0) completed++;
-  });
-  const pct=Math.round(completed/WEEKS.length*100);
-  document.getElementById('completed-count').textContent=completed;
-  document.getElementById('files-count').textContent=total;
-  document.getElementById('pct-count').textContent=pct+'%';
-  document.getElementById('progress-bar').style.width=pct+'%';
-  document.getElementById('progress-label').textContent=`${completed} de ${WEEKS.length} semanas completadas`;
+// ═══════════════════════════════════════════════════
+//  BORRAR TODO
+// ═══════════════════════════════════════════════════
+function confirmClearAll() {
+  showConfirm(
+    '¿Borrar todos los archivos?',
+    'Se eliminarán todos los archivos de todas las semanas. Esta acción no se puede deshacer.',
+    () => {
+      WEEKS.forEach(w => {
+        if (blobUrls[w.id]) blobUrls[w.id].forEach(u => u && URL.revokeObjectURL(u));
+        weekFiles[w.id] = [];
+        blobUrls[w.id]  = [];
+      });
+      localStorage.removeItem(LS_KEY);
+      renderAll();
+    }
+  );
 }
 
-// ═══════════════ UTILS ═══════════════
-function escHtml(s){
+// ═══════════════════════════════════════════════════
+//  CONFIRM MODAL
+// ═══════════════════════════════════════════════════
+function showConfirm(title, msg, cb) {
+  document.getElementById('confirm-title').textContent = title;
+  document.getElementById('confirm-msg').textContent   = msg;
+  confirmCallback = cb;
+  document.getElementById('confirm-modal').classList.add('active');
+  document.getElementById('confirm-ok-btn').onclick = () => {
+    closeConfirm(); if (confirmCallback) confirmCallback();
+  };
+}
+function closeConfirm() {
+  document.getElementById('confirm-modal').classList.remove('active');
+  confirmCallback = null;
+}
+
+// ═══════════════════════════════════════════════════
+//  ESTADÍSTICAS
+// ═══════════════════════════════════════════════════
+function updateStats() {
+  let completed = 0, total = 0;
+  WEEKS.forEach(w => { const n = weekFiles[w.id].length; total += n; if (n > 0) completed++; });
+  const pct = Math.round(completed / WEEKS.length * 100);
+  document.getElementById('completed-count').textContent = completed;
+  document.getElementById('files-count').textContent     = total;
+  document.getElementById('pct-count').textContent       = pct + '%';
+  document.getElementById('progress-bar').style.width    = pct + '%';
+  document.getElementById('progress-label').textContent  = `${completed} de ${WEEKS.length} semanas completadas`;
+}
+
+// ═══════════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════════
+function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ═══════════════ INIT ═══════════════
-renderAll();
+// ═══════════════════════════════════════════════════
+//  INICIO
+// ═══════════════════════════════════════════════════
+loadFromStorage();   // ← cargar datos guardados
+renderAll();         // ← construir la UI
+// Refrescar listas con datos cargados
+WEEKS.forEach(w => { if (weekFiles[w.id].length) refreshWeek(w.id); });
 </script>
 </body>
 </html>
